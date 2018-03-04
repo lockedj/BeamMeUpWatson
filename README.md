@@ -5,6 +5,4 @@ The diagram below shows how the components of the Lab link together.  What is bu
 
 ![Image of Lab architecture](https://github.com/lockedj/BeamMeUpWatson/blob/master/beammeupwatson.png)
 
-Lab instructions can be found in the [PDF here ](https://github.com/lockedj/BeamMeUpWatson/blob/master/4104_BeamMeUpWatson_Lab.pdf) 
-
-The lab is designed to run at your own pace and should take approx 1.5 hours
+Lab instructions can be found in a [PDF here ](https://github.com/lockedj/BeamMeUpWatson/blob/master/4104_BeamMeUpWatson_Lab.pdf) and is designed to run at your own pace.
