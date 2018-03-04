@@ -1,0 +1,816 @@
+[
+    {
+        "id": "6763dece.72bab",
+        "type": "ibmiot in",
+        "z": "4ae1ad00.14ece4",
+        "authentication": "boundService",
+        "apiKey": "",
+        "inputType": "evt",
+        "logicalInterfaceId": "",
+        "ruleId": "",
+        "deviceId": "bluecoindjl",
+        "applicationId": "",
+        "deviceType": "bluecoin",
+        "eventType": "",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": "",
+        "allEvents": true,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 70,
+        "y": 300,
+        "wires": [
+            [
+                "687fbf24.4a83b"
+            ]
+        ]
+    },
+    {
+        "id": "1f2b8d5.2aeae73",
+        "type": "change",
+        "z": "4ae1ad00.14ece4",
+        "name": "payload to angle",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.d.Angle",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 180,
+        "wires": [
+            [
+                "2c5d785c.7230b8",
+                "9c7454ec.e1ee68",
+                "d140129c.a5e62"
+            ]
+        ]
+    },
+    {
+        "id": "2c5d785c.7230b8",
+        "type": "debug",
+        "z": "4ae1ad00.14ece4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 500,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "9c7454ec.e1ee68",
+        "type": "ui_gauge",
+        "z": "4ae1ad00.14ece4",
+        "name": "",
+        "group": "a2ea1a2.d8af1e8",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "compass",
+        "title": "Compass",
+        "label": "degrees",
+        "format": "{{value | number:1}}",
+        "min": 0,
+        "max": "360",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 700,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "d140129c.a5e62",
+        "type": "switch",
+        "z": "4ae1ad00.14ece4",
+        "name": "Direction",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "btwn",
+                "v": "0",
+                "vt": "num",
+                "v2": "45",
+                "v2t": "num"
+            },
+            {
+                "t": "btwn",
+                "v": "315",
+                "vt": "num",
+                "v2": "360",
+                "v2t": "num"
+            },
+            {
+                "t": "btwn",
+                "v": "45",
+                "vt": "num",
+                "v2": "135",
+                "v2t": "num"
+            },
+            {
+                "t": "btwn",
+                "v": "135",
+                "vt": "num",
+                "v2": "225",
+                "v2t": "num"
+            },
+            {
+                "t": "btwn",
+                "v": "225",
+                "vt": "num",
+                "v2": "315",
+                "v2t": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 5,
+        "x": 360,
+        "y": 280,
+        "wires": [
+            [
+                "25e1af4d.a14fd"
+            ],
+            [
+                "25e1af4d.a14fd"
+            ],
+            [
+                "fbe6b425.d81ed8"
+            ],
+            [
+                "a7c4d02d.a491a"
+            ],
+            [
+                "fa7b0002.68a23"
+            ]
+        ]
+    },
+    {
+        "id": "25e1af4d.a14fd",
+        "type": "template",
+        "z": "4ae1ad00.14ece4",
+        "name": "North",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "North",
+        "output": "str",
+        "x": 550,
+        "y": 240,
+        "wires": [
+            [
+                "c455ae09.27684"
+            ]
+        ]
+    },
+    {
+        "id": "fbe6b425.d81ed8",
+        "type": "template",
+        "z": "4ae1ad00.14ece4",
+        "name": "East",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "East",
+        "output": "str",
+        "x": 550,
+        "y": 280,
+        "wires": [
+            [
+                "c455ae09.27684"
+            ]
+        ]
+    },
+    {
+        "id": "fa7b0002.68a23",
+        "type": "template",
+        "z": "4ae1ad00.14ece4",
+        "name": "West",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "West",
+        "output": "str",
+        "x": 550,
+        "y": 360,
+        "wires": [
+            [
+                "c455ae09.27684"
+            ]
+        ]
+    },
+    {
+        "id": "a7c4d02d.a491a",
+        "type": "template",
+        "z": "4ae1ad00.14ece4",
+        "name": "South",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "South",
+        "output": "str",
+        "x": 550,
+        "y": 320,
+        "wires": [
+            [
+                "c455ae09.27684"
+            ]
+        ]
+    },
+    {
+        "id": "c455ae09.27684",
+        "type": "ui_text",
+        "z": "4ae1ad00.14ece4",
+        "group": "a2ea1a2.d8af1e8",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Direction",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 710,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "b7478e4e.da6bc",
+        "type": "comment",
+        "z": "4ae1ad00.14ece4",
+        "name": "User interface to display data from the BlueCoin together derived information such as baring and motion",
+        "info": "",
+        "x": 390,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "e91efb2b.00ee98",
+        "type": "template",
+        "z": "4ae1ad00.14ece4",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Calm down {{payload}}",
+        "output": "str",
+        "x": 650,
+        "y": 720,
+        "wires": [
+            [
+                "9c98a28b.a5b16"
+            ]
+        ]
+    },
+    {
+        "id": "2fb363e5.2bc0cc",
+        "type": "switch",
+        "z": "4ae1ad00.14ece4",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "btwn",
+                "v": "-200",
+                "vt": "num",
+                "v2": "200",
+                "v2t": "num"
+            },
+            {
+                "t": "btwn",
+                "v": "200",
+                "vt": "num",
+                "v2": "500",
+                "v2t": "num"
+            },
+            {
+                "t": "btwn",
+                "v": "-200",
+                "vt": "num",
+                "v2": "-500",
+                "v2t": "num"
+            },
+            {
+                "t": "gt",
+                "v": "500",
+                "vt": "str"
+            },
+            {
+                "t": "lt",
+                "v": "-500",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 5,
+        "x": 510,
+        "y": 680,
+        "wires": [
+            [
+                "73f1908a.546a7"
+            ],
+            [
+                "496220f7.63d5f"
+            ],
+            [
+                "496220f7.63d5f"
+            ],
+            [
+                "e91efb2b.00ee98"
+            ],
+            [
+                "e91efb2b.00ee98"
+            ]
+        ]
+    },
+    {
+        "id": "9c98a28b.a5b16",
+        "type": "ui_text",
+        "z": "4ae1ad00.14ece4",
+        "group": "bb94687d.c269e8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Movement",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 790,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "a9853612.cf6fa8",
+        "type": "change",
+        "z": "4ae1ad00.14ece4",
+        "name": "payload to Y",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.d.Y",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 600,
+        "wires": [
+            [
+                "baebf92f.f7db48",
+                "2fb363e5.2bc0cc"
+            ]
+        ]
+    },
+    {
+        "id": "73f1908a.546a7",
+        "type": "template",
+        "z": "4ae1ad00.14ece4",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Slow and gentle {{payload}}",
+        "output": "str",
+        "x": 650,
+        "y": 640,
+        "wires": [
+            [
+                "9c98a28b.a5b16"
+            ]
+        ]
+    },
+    {
+        "id": "496220f7.63d5f",
+        "type": "template",
+        "z": "4ae1ad00.14ece4",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Its getting a little rough {{payload}}",
+        "output": "str",
+        "x": 650,
+        "y": 680,
+        "wires": [
+            [
+                "9c98a28b.a5b16"
+            ]
+        ]
+    },
+    {
+        "id": "687fbf24.4a83b",
+        "type": "switch",
+        "z": "4ae1ad00.14ece4",
+        "name": "",
+        "property": "eventType",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Compass",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Temperature",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Pressure",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Accelerometer",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Accelerometer_Events",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 5,
+        "x": 190,
+        "y": 300,
+        "wires": [
+            [
+                "1f2b8d5.2aeae73"
+            ],
+            [
+                "c30be2a9.39c7c"
+            ],
+            [
+                "31f88398.155e8c"
+            ],
+            [
+                "145997f7.6ec598",
+                "d0d8b708.6cd2a8",
+                "a9853612.cf6fa8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "baebf92f.f7db48",
+        "type": "change",
+        "z": "4ae1ad00.14ece4",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Y",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 600,
+        "wires": [
+            [
+                "5d99f47f.15cdcc"
+            ]
+        ]
+    },
+    {
+        "id": "c30be2a9.39c7c",
+        "type": "change",
+        "z": "4ae1ad00.14ece4",
+        "name": "payload to temp",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.d.Temperature",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 400,
+        "wires": [
+            [
+                "eca12b57.599d18"
+            ]
+        ]
+    },
+    {
+        "id": "145997f7.6ec598",
+        "type": "change",
+        "z": "4ae1ad00.14ece4",
+        "name": "payload to X",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.d.X",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 520,
+        "wires": [
+            [
+                "b7c4fc8.b451a"
+            ]
+        ]
+    },
+    {
+        "id": "d0d8b708.6cd2a8",
+        "type": "change",
+        "z": "4ae1ad00.14ece4",
+        "name": "payload to Z",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.d.Z",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 560,
+        "wires": [
+            [
+                "1687d605.3cec0a"
+            ]
+        ]
+    },
+    {
+        "id": "5d99f47f.15cdcc",
+        "type": "ui_chart",
+        "z": "4ae1ad00.14ece4",
+        "name": "",
+        "group": "bb94687d.c269e8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Accelerometer",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 740,
+        "y": 520,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "eca12b57.599d18",
+        "type": "ui_gauge",
+        "z": "4ae1ad00.14ece4",
+        "name": "Temp Gauge",
+        "group": "2d4e4af8.3834b6",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "units",
+        "format": "{{value | number:1}}",
+        "min": 0,
+        "max": "40",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 690,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "b7c4fc8.b451a",
+        "type": "change",
+        "z": "4ae1ad00.14ece4",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "X",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 520,
+        "wires": [
+            [
+                "5d99f47f.15cdcc"
+            ]
+        ]
+    },
+    {
+        "id": "1687d605.3cec0a",
+        "type": "change",
+        "z": "4ae1ad00.14ece4",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Z",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 560,
+        "wires": [
+            [
+                "5d99f47f.15cdcc"
+            ]
+        ]
+    },
+    {
+        "id": "31f88398.155e8c",
+        "type": "change",
+        "z": "4ae1ad00.14ece4",
+        "name": "Extract pressure",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.d.Pressure",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 440,
+        "wires": [
+            [
+                "75ead87c.5b3bd8"
+            ]
+        ]
+    },
+    {
+        "id": "75ead87c.5b3bd8",
+        "type": "ui_gauge",
+        "z": "4ae1ad00.14ece4",
+        "name": "Pressure Gauge",
+        "group": "2d4e4af8.3834b6",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Pressure",
+        "label": "units",
+        "format": "{{value | number:1}}",
+        "min": 0,
+        "max": "2000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 700,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "a2ea1a2.d8af1e8",
+        "type": "ui_group",
+        "z": "",
+        "name": "Compass",
+        "tab": "ae808a85.124398",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "bb94687d.c269e8",
+        "type": "ui_group",
+        "z": "",
+        "name": "Motion",
+        "tab": "ae808a85.124398",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "2d4e4af8.3834b6",
+        "type": "ui_group",
+        "z": "",
+        "name": "Environment",
+        "tab": "ae808a85.124398",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "ae808a85.124398",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard"
+    }
+]
