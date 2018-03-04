@@ -3,4 +3,4 @@ This lab, jointly presented by IBM and STMicrolectronics, combines a ST BlueCoin
 
 The diagram below shows how the components of the Lab link together.  What is built in the lab is an exemplar of a typical IoT solution. The lab provides a solid grounding in the principles of IoT and once completed will enable richer and more diverse projects to be undertaken. 
 
-![Image of Lab architecture](https://github.com/lockedj/BeamMeUpWatson/beammeupwatson.png)
+![Image of Lab architecture](https://github.com/lockedj/BeamMeUpWatson/blob/master/beammeupwatson.png)
