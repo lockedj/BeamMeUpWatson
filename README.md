@@ -4,3 +4,7 @@ This lab, jointly presented by IBM and STMicrolectronics, combines a ST BlueCoin
 The diagram below shows how the components of the Lab link together.  What is built in the lab is an exemplar of a typical IoT solution. The lab provides a solid grounding in the principles of IoT and once completed will enable richer and more diverse projects to be undertaken. 
 
 ![Image of Lab architecture](https://github.com/lockedj/BeamMeUpWatson/blob/master/beammeupwatson.png)
+
+Lab instructions can be found in the [PDF here ](https://github.com/lockedj/BeamMeUpWatson/blob/master/4104_beammeupwatson_lab.pdf) 
+
+The lab is designed to run at your own pace and should take approx 1.5 hours
