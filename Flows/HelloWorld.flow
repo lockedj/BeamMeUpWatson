@@ -1,0 +1,53 @@
+[
+    {
+        "id": "18bf935d.1575ed",
+        "type": "tab",
+        "label": "BlueCoin",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "2e95e1d.49f041e",
+        "type": "inject",
+        "z": "18bf935d.1575ed",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 110,
+        "y": 80,
+        "wires": [
+            [
+                "7e59a1fa.bf991"
+            ]
+        ]
+    },
+    {
+        "id": "7e59a1fa.bf991",
+        "type": "debug",
+        "z": "18bf935d.1575ed",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 290,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "ef10883c.ffeae8",
+        "type": "comment",
+        "z": "18bf935d.1575ed",
+        "name": "HelloWorld - send a timestamp every 5secs to debug console",
+        "info": "",
+        "x": 240,
+        "y": 40,
+        "wires": []
+    }
+]
