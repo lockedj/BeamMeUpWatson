@@ -1,0 +1,172 @@
+[
+    {
+        "id": "3d406338.b1409c",
+        "type": "watson-speech-to-text",
+        "z": "bf2c42a5.fd4d1",
+        "name": "",
+        "alternatives": 1,
+        "speakerlabels": false,
+        "smartformatting": false,
+        "lang": "en-US",
+        "langhidden": "en-US",
+        "langcustom": "NoCustomisationSetting",
+        "langcustomhidden": "",
+        "band": "BroadbandModel",
+        "bandhidden": "BroadbandModel",
+        "password": "",
+        "payload-response": true,
+        "streaming-mode": true,
+        "default-endpoint": true,
+        "service-endpoint": "https://stream.watsonplatform.net/speech-to-text/api",
+        "x": 280,
+        "y": 140,
+        "wires": [
+            [
+                "8c94dc9.eca912",
+                "4d8cddb.4808e24"
+            ]
+        ]
+    },
+    {
+        "id": "64cef62c.f657c8",
+        "type": "websocket in",
+        "z": "bf2c42a5.fd4d1",
+        "name": "WS Speech In",
+        "server": "877d70b.d19009",
+        "client": "",
+        "x": 110,
+        "y": 140,
+        "wires": [
+            [
+                "3d406338.b1409c"
+            ]
+        ]
+    },
+    {
+        "id": "8c94dc9.eca912",
+        "type": "websocket out",
+        "z": "bf2c42a5.fd4d1",
+        "name": "WS Speech Out",
+        "server": "877d70b.d19009",
+        "client": "",
+        "x": 500,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "33a40526.99074a",
+        "type": "debug",
+        "z": "bf2c42a5.fd4d1",
+        "name": "Transcribed text",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 680,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "4d8cddb.4808e24",
+        "type": "function",
+        "z": "bf2c42a5.fd4d1",
+        "name": "Extract transcribed text",
+        "func": "if ((typeof msg.payload.results !== \"undefined\" ) && (msg.payload.results.length >=1) && (msg.payload.results[0].final === true) ) {\n    \n    return [{payload:msg.payload.results[0].alternatives[0].transcript},{payload:msg.payload.results[0].alternatives[0].confidence}];\n} \n",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 430,
+        "y": 260,
+        "wires": [
+            [
+                "33a40526.99074a",
+                "1ed9daf6.9c9a25"
+            ],
+            [
+                "94e7a28f.39b19",
+                "2aaf3144.54c0fe"
+            ]
+        ]
+    },
+    {
+        "id": "94e7a28f.39b19",
+        "type": "debug",
+        "z": "bf2c42a5.fd4d1",
+        "name": "Transribe confidence",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 700,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "1ed9daf6.9c9a25",
+        "type": "ui_text",
+        "z": "bf2c42a5.fd4d1",
+        "group": "75d85640.173708",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Transcribe",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 670,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "2aaf3144.54c0fe",
+        "type": "ui_text",
+        "z": "bf2c42a5.fd4d1",
+        "group": "75d85640.173708",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Confidence",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 670,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "23cc2ae2.6059d6",
+        "type": "comment",
+        "z": "bf2c42a5.fd4d1",
+        "name": "Proxy that sits between S2T Client and Service enabling app to intercept the transcribed text",
+        "info": "",
+        "x": 360,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "877d70b.d19009",
+        "type": "websocket-listener",
+        "z": "",
+        "path": "/ws/stt/v1/recognize",
+        "wholemsg": "false"
+    },
+    {
+        "id": "75d85640.173708",
+        "type": "ui_group",
+        "z": "",
+        "name": "Voice",
+        "tab": "ae808a85.124398",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "ae808a85.124398",
+        "type": "ui_tab",
+        "z": 0,
+        "name": "Home",
+        "icon": "dashboard"
+    }
+]
