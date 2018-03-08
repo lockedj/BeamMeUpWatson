@@ -1,15 +1,8 @@
 [
     {
-        "id": "18bf935d.1575ed",
-        "type": "tab",
-        "label": "BlueCoin",
-        "disabled": false,
-        "info": ""
-    },
-    {
-        "id": "2e95e1d.49f041e",
+        "id": "d3188aa2.21c448",
         "type": "inject",
-        "z": "18bf935d.1575ed",
+        "z": "a457eddf.3220e",
         "name": "",
         "topic": "",
         "payload": "",
@@ -22,14 +15,14 @@
         "y": 80,
         "wires": [
             [
-                "7e59a1fa.bf991"
+                "18d87f67.e51c01"
             ]
         ]
     },
     {
-        "id": "7e59a1fa.bf991",
+        "id": "18d87f67.e51c01",
         "type": "debug",
-        "z": "18bf935d.1575ed",
+        "z": "a457eddf.3220e",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -41,9 +34,9 @@
         "wires": []
     },
     {
-        "id": "ef10883c.ffeae8",
+        "id": "5bb55e2b.09cbc",
         "type": "comment",
-        "z": "18bf935d.1575ed",
+        "z": "a457eddf.3220e",
         "name": "HelloWorld - send a timestamp every 5secs to debug console",
         "info": "",
         "x": 240,
