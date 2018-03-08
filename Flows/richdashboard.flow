@@ -1,8 +1,8 @@
 [
     {
-        "id": "6763dece.72bab",
+        "id": "bd8c11f2.3c20c",
         "type": "ibmiot in",
-        "z": "4ae1ad00.14ece4",
+        "z": "1168f20b.0eb51e",
         "authentication": "boundService",
         "apiKey": "",
         "inputType": "evt",
@@ -16,25 +16,25 @@
         "format": "json",
         "name": "IBM IoT",
         "service": "registered",
-        "allDevices": "",
+        "allDevices": true,
         "allApplications": "",
-        "allDeviceTypes": "",
+        "allDeviceTypes": true,
         "allEvents": true,
         "allCommands": "",
         "allFormats": "",
         "qos": 0,
-        "x": 70,
-        "y": 300,
+        "x": 101,
+        "y": 340,
         "wires": [
             [
-                "687fbf24.4a83b"
+                "1681565c.b5df6a"
             ]
         ]
     },
     {
-        "id": "1f2b8d5.2aeae73",
+        "id": "dff809a0.b167f8",
         "type": "change",
-        "z": "4ae1ad00.14ece4",
+        "z": "1168f20b.0eb51e",
         "name": "payload to angle",
         "rules": [
             {
@@ -50,36 +50,36 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 350,
-        "y": 180,
+        "x": 381,
+        "y": 220,
         "wires": [
             [
-                "2c5d785c.7230b8",
-                "9c7454ec.e1ee68",
-                "d140129c.a5e62"
+                "b54b594f.a08e58",
+                "f7d5f6c5.0c8948",
+                "9b4db32a.796a8"
             ]
         ]
     },
     {
-        "id": "2c5d785c.7230b8",
+        "id": "b54b594f.a08e58",
         "type": "debug",
-        "z": "4ae1ad00.14ece4",
+        "z": "1168f20b.0eb51e",
         "name": "",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 500,
-        "y": 120,
+        "x": 531,
+        "y": 160,
         "wires": []
     },
     {
-        "id": "9c7454ec.e1ee68",
+        "id": "f7d5f6c5.0c8948",
         "type": "ui_gauge",
-        "z": "4ae1ad00.14ece4",
+        "z": "1168f20b.0eb51e",
         "name": "",
-        "group": "a2ea1a2.d8af1e8",
+        "group": "2185efd.11b671",
         "order": 0,
         "width": 0,
         "height": 0,
@@ -96,14 +96,14 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 700,
-        "y": 180,
+        "x": 731,
+        "y": 220,
         "wires": []
     },
     {
-        "id": "d140129c.a5e62",
+        "id": "9b4db32a.796a8",
         "type": "switch",
-        "z": "4ae1ad00.14ece4",
+        "z": "1168f20b.0eb51e",
         "name": "Direction",
         "property": "payload",
         "propertyType": "msg",
@@ -147,30 +147,30 @@
         "checkall": "true",
         "repair": false,
         "outputs": 5,
-        "x": 360,
-        "y": 280,
+        "x": 391,
+        "y": 320,
         "wires": [
             [
-                "25e1af4d.a14fd"
+                "29139308.23cc9c"
             ],
             [
-                "25e1af4d.a14fd"
+                "29139308.23cc9c"
             ],
             [
-                "fbe6b425.d81ed8"
+                "a132625c.33a73"
             ],
             [
-                "a7c4d02d.a491a"
+                "e2d1da7e.b06d28"
             ],
             [
-                "fa7b0002.68a23"
+                "45e9776c.838938"
             ]
         ]
     },
     {
-        "id": "25e1af4d.a14fd",
+        "id": "29139308.23cc9c",
         "type": "template",
-        "z": "4ae1ad00.14ece4",
+        "z": "1168f20b.0eb51e",
         "name": "North",
         "field": "payload",
         "fieldType": "msg",
@@ -178,18 +178,18 @@
         "syntax": "mustache",
         "template": "North",
         "output": "str",
-        "x": 550,
-        "y": 240,
+        "x": 581,
+        "y": 280,
         "wires": [
             [
-                "c455ae09.27684"
+                "496f59a9.1fa8a8"
             ]
         ]
     },
     {
-        "id": "fbe6b425.d81ed8",
+        "id": "a132625c.33a73",
         "type": "template",
-        "z": "4ae1ad00.14ece4",
+        "z": "1168f20b.0eb51e",
         "name": "East",
         "field": "payload",
         "fieldType": "msg",
@@ -197,18 +197,18 @@
         "syntax": "mustache",
         "template": "East",
         "output": "str",
-        "x": 550,
-        "y": 280,
+        "x": 581,
+        "y": 320,
         "wires": [
             [
-                "c455ae09.27684"
+                "496f59a9.1fa8a8"
             ]
         ]
     },
     {
-        "id": "fa7b0002.68a23",
+        "id": "45e9776c.838938",
         "type": "template",
-        "z": "4ae1ad00.14ece4",
+        "z": "1168f20b.0eb51e",
         "name": "West",
         "field": "payload",
         "fieldType": "msg",
@@ -216,18 +216,18 @@
         "syntax": "mustache",
         "template": "West",
         "output": "str",
-        "x": 550,
-        "y": 360,
+        "x": 581,
+        "y": 400,
         "wires": [
             [
-                "c455ae09.27684"
+                "496f59a9.1fa8a8"
             ]
         ]
     },
     {
-        "id": "a7c4d02d.a491a",
+        "id": "e2d1da7e.b06d28",
         "type": "template",
-        "z": "4ae1ad00.14ece4",
+        "z": "1168f20b.0eb51e",
         "name": "South",
         "field": "payload",
         "fieldType": "msg",
@@ -235,19 +235,19 @@
         "syntax": "mustache",
         "template": "South",
         "output": "str",
-        "x": 550,
-        "y": 320,
+        "x": 581,
+        "y": 360,
         "wires": [
             [
-                "c455ae09.27684"
+                "496f59a9.1fa8a8"
             ]
         ]
     },
     {
-        "id": "c455ae09.27684",
+        "id": "496f59a9.1fa8a8",
         "type": "ui_text",
-        "z": "4ae1ad00.14ece4",
-        "group": "a2ea1a2.d8af1e8",
+        "z": "1168f20b.0eb51e",
+        "group": "2185efd.11b671",
         "order": 0,
         "width": 0,
         "height": 0,
@@ -255,24 +255,24 @@
         "label": "Direction",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 710,
-        "y": 300,
+        "x": 741,
+        "y": 340,
         "wires": []
     },
     {
-        "id": "b7478e4e.da6bc",
+        "id": "ae93908c.cc5ad",
         "type": "comment",
-        "z": "4ae1ad00.14ece4",
+        "z": "1168f20b.0eb51e",
         "name": "User interface to display data from the BlueCoin together derived information such as baring and motion",
         "info": "",
-        "x": 390,
-        "y": 60,
+        "x": 421,
+        "y": 100,
         "wires": []
     },
     {
-        "id": "e91efb2b.00ee98",
+        "id": "f4b094a0.ee5c58",
         "type": "template",
-        "z": "4ae1ad00.14ece4",
+        "z": "1168f20b.0eb51e",
         "name": "",
         "field": "payload",
         "fieldType": "msg",
@@ -280,18 +280,18 @@
         "syntax": "mustache",
         "template": "Calm down {{payload}}",
         "output": "str",
-        "x": 650,
-        "y": 720,
+        "x": 681,
+        "y": 760,
         "wires": [
             [
-                "9c98a28b.a5b16"
+                "8bf1249e.e84968"
             ]
         ]
     },
     {
-        "id": "2fb363e5.2bc0cc",
+        "id": "f6dc245f.898f78",
         "type": "switch",
-        "z": "4ae1ad00.14ece4",
+        "z": "1168f20b.0eb51e",
         "name": "",
         "property": "payload",
         "propertyType": "msg",
@@ -331,31 +331,31 @@
         "checkall": "true",
         "repair": false,
         "outputs": 5,
-        "x": 510,
-        "y": 680,
+        "x": 541,
+        "y": 720,
         "wires": [
             [
-                "73f1908a.546a7"
+                "2340a36d.eddd1c"
             ],
             [
-                "496220f7.63d5f"
+                "36a43ffb.c3c2e"
             ],
             [
-                "496220f7.63d5f"
+                "36a43ffb.c3c2e"
             ],
             [
-                "e91efb2b.00ee98"
+                "f4b094a0.ee5c58"
             ],
             [
-                "e91efb2b.00ee98"
+                "f4b094a0.ee5c58"
             ]
         ]
     },
     {
-        "id": "9c98a28b.a5b16",
+        "id": "8bf1249e.e84968",
         "type": "ui_text",
-        "z": "4ae1ad00.14ece4",
-        "group": "bb94687d.c269e8",
+        "z": "1168f20b.0eb51e",
+        "group": "f5770ed0.23ccf",
         "order": 2,
         "width": 0,
         "height": 0,
@@ -363,14 +363,14 @@
         "label": "Movement",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 790,
-        "y": 680,
+        "x": 821,
+        "y": 720,
         "wires": []
     },
     {
-        "id": "a9853612.cf6fa8",
+        "id": "6c09a58d.1cee3c",
         "type": "change",
-        "z": "4ae1ad00.14ece4",
+        "z": "1168f20b.0eb51e",
         "name": "payload to Y",
         "rules": [
             {
@@ -386,19 +386,19 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
-        "y": 600,
+        "x": 401,
+        "y": 640,
         "wires": [
             [
-                "baebf92f.f7db48",
-                "2fb363e5.2bc0cc"
+                "8ade06ae.f35ec8",
+                "f6dc245f.898f78"
             ]
         ]
     },
     {
-        "id": "73f1908a.546a7",
+        "id": "2340a36d.eddd1c",
         "type": "template",
-        "z": "4ae1ad00.14ece4",
+        "z": "1168f20b.0eb51e",
         "name": "",
         "field": "payload",
         "fieldType": "msg",
@@ -406,18 +406,18 @@
         "syntax": "mustache",
         "template": "Slow and gentle {{payload}}",
         "output": "str",
-        "x": 650,
-        "y": 640,
+        "x": 681,
+        "y": 680,
         "wires": [
             [
-                "9c98a28b.a5b16"
+                "8bf1249e.e84968"
             ]
         ]
     },
     {
-        "id": "496220f7.63d5f",
+        "id": "36a43ffb.c3c2e",
         "type": "template",
-        "z": "4ae1ad00.14ece4",
+        "z": "1168f20b.0eb51e",
         "name": "",
         "field": "payload",
         "fieldType": "msg",
@@ -425,18 +425,18 @@
         "syntax": "mustache",
         "template": "Its getting a little rough {{payload}}",
         "output": "str",
-        "x": 650,
-        "y": 680,
+        "x": 681,
+        "y": 720,
         "wires": [
             [
-                "9c98a28b.a5b16"
+                "8bf1249e.e84968"
             ]
         ]
     },
     {
-        "id": "687fbf24.4a83b",
+        "id": "1681565c.b5df6a",
         "type": "switch",
-        "z": "4ae1ad00.14ece4",
+        "z": "1168f20b.0eb51e",
         "name": "",
         "property": "eventType",
         "propertyType": "msg",
@@ -470,30 +470,30 @@
         "checkall": "true",
         "repair": false,
         "outputs": 5,
-        "x": 190,
-        "y": 300,
+        "x": 221,
+        "y": 340,
         "wires": [
             [
-                "1f2b8d5.2aeae73"
+                "dff809a0.b167f8"
             ],
             [
-                "c30be2a9.39c7c"
+                "ced28329.10737"
             ],
             [
-                "31f88398.155e8c"
+                "cb5904d6.1c9238"
             ],
             [
-                "145997f7.6ec598",
-                "d0d8b708.6cd2a8",
-                "a9853612.cf6fa8"
+                "ae2664b7.6e20a8",
+                "2b16a071.25547",
+                "6c09a58d.1cee3c"
             ],
             []
         ]
     },
     {
-        "id": "baebf92f.f7db48",
+        "id": "8ade06ae.f35ec8",
         "type": "change",
-        "z": "4ae1ad00.14ece4",
+        "z": "1168f20b.0eb51e",
         "name": "",
         "rules": [
             {
@@ -509,18 +509,18 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 540,
-        "y": 600,
+        "x": 571,
+        "y": 640,
         "wires": [
             [
-                "5d99f47f.15cdcc"
+                "f355aef1.7c09e"
             ]
         ]
     },
     {
-        "id": "c30be2a9.39c7c",
+        "id": "ced28329.10737",
         "type": "change",
-        "z": "4ae1ad00.14ece4",
+        "z": "1168f20b.0eb51e",
         "name": "payload to temp",
         "rules": [
             {
@@ -536,18 +536,18 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 380,
-        "y": 400,
+        "x": 411,
+        "y": 440,
         "wires": [
             [
-                "eca12b57.599d18"
+                "ac9d0bbc.9f6bf8"
             ]
         ]
     },
     {
-        "id": "145997f7.6ec598",
+        "id": "ae2664b7.6e20a8",
         "type": "change",
-        "z": "4ae1ad00.14ece4",
+        "z": "1168f20b.0eb51e",
         "name": "payload to X",
         "rules": [
             {
@@ -563,18 +563,18 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
-        "y": 520,
+        "x": 401,
+        "y": 560,
         "wires": [
             [
-                "b7c4fc8.b451a"
+                "299300ec.4aa9"
             ]
         ]
     },
     {
-        "id": "d0d8b708.6cd2a8",
+        "id": "2b16a071.25547",
         "type": "change",
-        "z": "4ae1ad00.14ece4",
+        "z": "1168f20b.0eb51e",
         "name": "payload to Z",
         "rules": [
             {
@@ -590,20 +590,20 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
-        "y": 560,
+        "x": 401,
+        "y": 600,
         "wires": [
             [
-                "1687d605.3cec0a"
+                "932dbc5e.fd152"
             ]
         ]
     },
     {
-        "id": "5d99f47f.15cdcc",
+        "id": "f355aef1.7c09e",
         "type": "ui_chart",
-        "z": "4ae1ad00.14ece4",
+        "z": "1168f20b.0eb51e",
         "name": "",
-        "group": "bb94687d.c269e8",
+        "group": "f5770ed0.23ccf",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -633,19 +633,19 @@
             "#c5b0d5"
         ],
         "useOldStyle": false,
-        "x": 740,
-        "y": 520,
+        "x": 771,
+        "y": 560,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "eca12b57.599d18",
+        "id": "ac9d0bbc.9f6bf8",
         "type": "ui_gauge",
-        "z": "4ae1ad00.14ece4",
+        "z": "1168f20b.0eb51e",
         "name": "Temp Gauge",
-        "group": "2d4e4af8.3834b6",
+        "group": "be276ab3.4d73a8",
         "order": 0,
         "width": 0,
         "height": 0,
@@ -662,14 +662,14 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 690,
-        "y": 400,
+        "x": 721,
+        "y": 440,
         "wires": []
     },
     {
-        "id": "b7c4fc8.b451a",
+        "id": "299300ec.4aa9",
         "type": "change",
-        "z": "4ae1ad00.14ece4",
+        "z": "1168f20b.0eb51e",
         "name": "",
         "rules": [
             {
@@ -685,18 +685,18 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 540,
-        "y": 520,
+        "x": 571,
+        "y": 560,
         "wires": [
             [
-                "5d99f47f.15cdcc"
+                "f355aef1.7c09e"
             ]
         ]
     },
     {
-        "id": "1687d605.3cec0a",
+        "id": "932dbc5e.fd152",
         "type": "change",
-        "z": "4ae1ad00.14ece4",
+        "z": "1168f20b.0eb51e",
         "name": "",
         "rules": [
             {
@@ -712,18 +712,18 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 540,
-        "y": 560,
+        "x": 571,
+        "y": 600,
         "wires": [
             [
-                "5d99f47f.15cdcc"
+                "f355aef1.7c09e"
             ]
         ]
     },
     {
-        "id": "31f88398.155e8c",
+        "id": "cb5904d6.1c9238",
         "type": "change",
-        "z": "4ae1ad00.14ece4",
+        "z": "1168f20b.0eb51e",
         "name": "Extract pressure",
         "rules": [
             {
@@ -739,20 +739,20 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 380,
-        "y": 440,
+        "x": 411,
+        "y": 480,
         "wires": [
             [
-                "75ead87c.5b3bd8"
+                "893430ce.84a94"
             ]
         ]
     },
     {
-        "id": "75ead87c.5b3bd8",
+        "id": "893430ce.84a94",
         "type": "ui_gauge",
-        "z": "4ae1ad00.14ece4",
+        "z": "1168f20b.0eb51e",
         "name": "Pressure Gauge",
-        "group": "2d4e4af8.3834b6",
+        "group": "be276ab3.4d73a8",
         "order": 0,
         "width": 0,
         "height": 0,
@@ -769,45 +769,45 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 700,
-        "y": 440,
+        "x": 731,
+        "y": 480,
         "wires": []
     },
     {
-        "id": "a2ea1a2.d8af1e8",
+        "id": "2185efd.11b671",
         "type": "ui_group",
         "z": "",
         "name": "Compass",
-        "tab": "ae808a85.124398",
+        "tab": "8fe6ab89.983678",
         "order": 1,
         "disp": true,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "bb94687d.c269e8",
+        "id": "f5770ed0.23ccf",
         "type": "ui_group",
         "z": "",
         "name": "Motion",
-        "tab": "ae808a85.124398",
+        "tab": "8fe6ab89.983678",
         "order": 3,
         "disp": true,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "2d4e4af8.3834b6",
+        "id": "be276ab3.4d73a8",
         "type": "ui_group",
         "z": "",
         "name": "Environment",
-        "tab": "ae808a85.124398",
+        "tab": "8fe6ab89.983678",
         "order": 2,
         "disp": true,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "ae808a85.124398",
+        "id": "8fe6ab89.983678",
         "type": "ui_tab",
         "z": "",
         "name": "Home",
