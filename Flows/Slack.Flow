@@ -1,0 +1,74 @@
+[
+    {
+        "id": "a023d0f0.6fed1",
+        "type": "slack",
+        "z": "f234954e.7ea718",
+        "name": "Slack test",
+        "channelURL": "https://hooks.slack.com/services/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",
+        "username": "dave",
+        "emojiIcon": "",
+        "channel": "",
+        "x": 409,
+        "y": 91,
+        "wires": []
+    },
+    {
+        "id": "ac181517.9bb778",
+        "type": "Slack Bot In",
+        "z": "f234954e.7ea718",
+        "name": "Receive beam me up messages",
+        "apiToken": "xoxb-327821318007-nJ0rniRJRCrteEza6gkSla7Y",
+        "channel": "nodered_test",
+        "x": 162,
+        "y": 151,
+        "wires": [
+            [
+                "516b56b6.ed4d18"
+            ]
+        ]
+    },
+    {
+        "id": "516b56b6.ed4d18",
+        "type": "debug",
+        "z": "f234954e.7ea718",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 421,
+        "y": 151,
+        "wires": []
+    },
+    {
+        "id": "acbe9c15.b9c31",
+        "type": "inject",
+        "z": "f234954e.7ea718",
+        "name": "Test msg",
+        "topic": "",
+        "payload": "test msg from DJL",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 116,
+        "y": 92,
+        "wires": [
+            [
+                "a023d0f0.6fed1"
+            ]
+        ]
+    },
+    {
+        "id": "ba59d1c1.4e03b",
+        "type": "comment",
+        "z": "f234954e.7ea718",
+        "name": "Integration with Slack, send and receive messages",
+        "info": "",
+        "x": 215,
+        "y": 42,
+        "wires": []
+    }
+]
