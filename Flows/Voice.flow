@@ -1,0 +1,388 @@
+[
+    {
+        "id": "36358290.199a0e",
+        "type": "inject",
+        "z": "15ede860.751be8",
+        "name": "Hi",
+        "topic": "",
+        "payload": "hi",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "x": 82,
+        "y": 341,
+        "wires": [
+            [
+                "af71feb4.0da34"
+            ]
+        ]
+    },
+    {
+        "id": "af71feb4.0da34",
+        "type": "function",
+        "z": "15ede860.751be8",
+        "name": "HTTP header",
+        "func": "msg.headers={\"accept\": \"application/json\"};\nmsg.payload = { \"text\": msg.payload, \"language\": \"en-US\", \"userID\": \"application-14c\", \"deviceType\": \"phone\", \"additionalInformation\": { \"context\": {} } };\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 289,
+        "y": 405,
+        "wires": [
+            [
+                "8663d221.e571a"
+            ]
+        ]
+    },
+    {
+        "id": "8663d221.e571a",
+        "type": "http request",
+        "z": "15ede860.751be8",
+        "name": "Invoke WA",
+        "method": "POST",
+        "ret": "obj",
+        "url": "https://watson-personal-assistant-toolkit.mybluemix.net/v2/api/converse?api_key=d8f9e35f-24fe-4641-8bee-fb7cb5f36456",
+        "tls": "",
+        "x": 454,
+        "y": 405,
+        "wires": [
+            [
+                "aa573b3c.8abff8"
+            ]
+        ]
+    },
+    {
+        "id": "e90aefb2.01174",
+        "type": "debug",
+        "z": "15ede860.751be8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 968,
+        "y": 355,
+        "wires": []
+    },
+    {
+        "id": "41afebcd.d9c954",
+        "type": "inject",
+        "z": "15ede860.751be8",
+        "name": "Weather",
+        "topic": "",
+        "payload": "tell me the weather in las vegas",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "x": 92,
+        "y": 381,
+        "wires": [
+            [
+                "af71feb4.0da34"
+            ]
+        ]
+    },
+    {
+        "id": "3eaf3b54.9530c4",
+        "type": "inject",
+        "z": "15ede860.751be8",
+        "name": "Time",
+        "topic": "",
+        "payload": "Tell me the time in london",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "x": 82,
+        "y": 421,
+        "wires": [
+            [
+                "af71feb4.0da34"
+            ]
+        ]
+    },
+    {
+        "id": "8915fcdd.32945",
+        "type": "inject",
+        "z": "15ede860.751be8",
+        "name": "What is",
+        "topic": "",
+        "payload": "What is IBM",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "x": 82,
+        "y": 481,
+        "wires": [
+            [
+                "af71feb4.0da34"
+            ]
+        ]
+    },
+    {
+        "id": "aa573b3c.8abff8",
+        "type": "switch",
+        "z": "15ede860.751be8",
+        "name": "",
+        "property": "payload.reject",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 604,
+        "y": 408,
+        "wires": [
+            [
+                "e1ecc585.68d3f8"
+            ]
+        ]
+    },
+    {
+        "id": "c91d5552.9aee08",
+        "type": "watson-speech-to-text",
+        "z": "15ede860.751be8",
+        "name": "",
+        "alternatives": 1,
+        "speakerlabels": false,
+        "smartformatting": false,
+        "lang": "en-US",
+        "langhidden": "en-US",
+        "langcustom": "NoCustomisationSetting",
+        "langcustomhidden": "",
+        "band": "BroadbandModel",
+        "bandhidden": "BroadbandModel",
+        "password": "HRdyC6CMlbJr",
+        "payload-response": true,
+        "streaming-mode": true,
+        "streaming-mute": true,
+        "discard-listening": false,
+        "default-endpoint": true,
+        "service-endpoint": "https://stream.watsonplatform.net/speech-to-text/api",
+        "x": 259,
+        "y": 73,
+        "wires": [
+            [
+                "3dccac0e.deb0b4",
+                "eaa0733c.5f439"
+            ]
+        ]
+    },
+    {
+        "id": "ed4e3f63.bd69f",
+        "type": "websocket in",
+        "z": "15ede860.751be8",
+        "name": "WS Speech In",
+        "server": "a10bcd2a.baa43",
+        "client": "",
+        "x": 89,
+        "y": 73,
+        "wires": [
+            [
+                "c91d5552.9aee08"
+            ]
+        ]
+    },
+    {
+        "id": "3dccac0e.deb0b4",
+        "type": "websocket out",
+        "z": "15ede860.751be8",
+        "name": "WS Speech Out",
+        "server": "a10bcd2a.baa43",
+        "client": "",
+        "x": 479,
+        "y": 73,
+        "wires": []
+    },
+    {
+        "id": "a42d0c56.cc215",
+        "type": "debug",
+        "z": "15ede860.751be8",
+        "name": "Transcribed text",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 659,
+        "y": 173,
+        "wires": []
+    },
+    {
+        "id": "eaa0733c.5f439",
+        "type": "function",
+        "z": "15ede860.751be8",
+        "name": "Extract transcribed text",
+        "func": "if ((typeof msg.payload.results !== \"undefined\" ) && (msg.payload.results.length >=1) && (msg.payload.results[0].final === true) ) {\n    \n    return [{payload:msg.payload.results[0].alternatives[0].transcript},{payload:msg.payload.results[0].alternatives[0].confidence}];\n} \n",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 409,
+        "y": 193,
+        "wires": [
+            [
+                "a42d0c56.cc215",
+                "27aba0e1.9c34c",
+                "af71feb4.0da34"
+            ],
+            [
+                "84e83183.f86d5",
+                "b5ae425f.38d12"
+            ]
+        ]
+    },
+    {
+        "id": "84e83183.f86d5",
+        "type": "debug",
+        "z": "15ede860.751be8",
+        "name": "Transribe confidence",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 679,
+        "y": 253,
+        "wires": []
+    },
+    {
+        "id": "27aba0e1.9c34c",
+        "type": "ui_text",
+        "z": "15ede860.751be8",
+        "group": "2f369e7e.8059c2",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Transcribe",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 649,
+        "y": 133,
+        "wires": []
+    },
+    {
+        "id": "b5ae425f.38d12",
+        "type": "ui_text",
+        "z": "15ede860.751be8",
+        "group": "2f369e7e.8059c2",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Confidence",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 649,
+        "y": 213,
+        "wires": []
+    },
+    {
+        "id": "174e5317.c3f38d",
+        "type": "comment",
+        "z": "15ede860.751be8",
+        "name": "Proxy that sits between S2T Client and Service enabling app to intercept the transcribed text",
+        "info": "",
+        "x": 339,
+        "y": 33,
+        "wires": []
+    },
+    {
+        "id": "dde5c8fd.49f9f8",
+        "type": "comment",
+        "z": "15ede860.751be8",
+        "name": "Integration with Watson Assistant",
+        "info": "",
+        "x": 137,
+        "y": 291,
+        "wires": []
+    },
+    {
+        "id": "7d09798b.c8c528",
+        "type": "ui_text",
+        "z": "15ede860.751be8",
+        "group": "2f369e7e.8059c2",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "WA Response",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 980,
+        "y": 402,
+        "wires": []
+    },
+    {
+        "id": "e1ecc585.68d3f8",
+        "type": "function",
+        "z": "15ede860.751be8",
+        "name": "Extract response",
+        "func": "return [{payload:msg.payload.speech.text},{payload:msg.payload.skill.name}];\n \n",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 761,
+        "y": 408,
+        "wires": [
+            [
+                "e90aefb2.01174",
+                "7d09798b.c8c528"
+            ],
+            [
+                "e90aefb2.01174",
+                "fe05714f.2d365"
+            ]
+        ]
+    },
+    {
+        "id": "fe05714f.2d365",
+        "type": "ui_text",
+        "z": "15ede860.751be8",
+        "group": "2f369e7e.8059c2",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "WA Skill",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 959,
+        "y": 442,
+        "wires": []
+    },
+    {
+        "id": "a10bcd2a.baa43",
+        "type": "websocket-listener",
+        "z": "",
+        "path": "/ws/stt/v1/recognize",
+        "wholemsg": "false"
+    },
+    {
+        "id": "2f369e7e.8059c2",
+        "type": "ui_group",
+        "z": "",
+        "name": "Voice",
+        "tab": "f0d07891.5b63c8",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "f0d07891.5b63c8",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard"
+    }
+]
