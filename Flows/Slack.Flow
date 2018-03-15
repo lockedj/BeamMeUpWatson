@@ -1,33 +1,5 @@
 [
     {
-        "id": "a023d0f0.6fed1",
-        "type": "slack",
-        "z": "f234954e.7ea718",
-        "name": "Slack test",
-        "channelURL": "https://hooks.slack.com/services/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",
-        "username": "dave",
-        "emojiIcon": "",
-        "channel": "",
-        "x": 409,
-        "y": 91,
-        "wires": []
-    },
-    {
-        "id": "ac181517.9bb778",
-        "type": "Slack Bot In",
-        "z": "f234954e.7ea718",
-        "name": "Receive beam me up messages",
-        "apiToken": "xoxb-327821318007-nJ0rniRJRCrteEza6gkSla7Y",
-        "channel": "nodered_test",
-        "x": 162,
-        "y": 151,
-        "wires": [
-            [
-                "516b56b6.ed4d18"
-            ]
-        ]
-    },
-    {
         "id": "516b56b6.ed4d18",
         "type": "debug",
         "z": "f234954e.7ea718",
@@ -37,8 +9,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 421,
-        "y": 151,
+        "x": 416,
+        "y": 184,
         "wires": []
     },
     {
@@ -70,5 +42,49 @@
         "x": 215,
         "y": 42,
         "wires": []
+    },
+    {
+        "id": "a023d0f0.6fed1",
+        "type": "slack",
+        "z": "f234954e.7ea718",
+        "name": "Msg to Slack",
+        "channelURL": "https://hooks.slack.com/services/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",
+        "username": "dave",
+        "emojiIcon": "",
+        "channel": "",
+        "x": 419,
+        "y": 91,
+        "wires": []
+    },
+    {
+        "id": "ac181517.9bb778",
+        "type": "Slack Bot In",
+        "z": "f234954e.7ea718",
+        "name": "Receive beam me up messages",
+        "apiToken": "xoxb-327821318007-2B3vA7mJsqcFK7ehigdm1NKM",
+        "channel": "nodered_test",
+        "x": 160,
+        "y": 183,
+        "wires": [
+            [
+                "516b56b6.ed4d18"
+            ]
+        ]
+    },
+    {
+        "id": "dc00d82f.2d5bf8",
+        "type": "link in",
+        "z": "f234954e.7ea718",
+        "name": "SendToSlack",
+        "links": [
+            "e69d7555.55bec8"
+        ],
+        "x": 153.5,
+        "y": 138,
+        "wires": [
+            [
+                "a023d0f0.6fed1"
+            ]
+        ]
     }
 ]
